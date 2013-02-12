@@ -1,0 +1,21 @@
+<script type="text/javascript" src="scripts/sendEconomicAlteration.js"></script>
+<form>
+	<div class="column">
+		<label for="title">Titel: *</label>
+		<input type="text" id="title" name="title" placeholder="Titel"/><br/>
+		<label for="description">Kostnad: *</label>
+		<input type="text" id="price" name="price" placeholder="Kostnad"/><br/>
+		<label for="receipt">Kvitto: *</label><br/>
+		<select>
+			<option value="1">Ja</option>
+			<option value="0">Nej</option>
+		</select><br/>
+		<input type="submit" value="Lägg till" name="economicAlterationSubmit" id="economicAlterationSubmit"/>
+	</div>
+	
+	<div class="column">
+		<label for="description">Vidare information: </label>
+		<textarea name="description" rows="8" cols="30"></textarea><br/>
+		<input type="hidden" value="" id="alterationType"/>
+	</div>
+</form>

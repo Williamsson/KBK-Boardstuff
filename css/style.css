@@ -1,0 +1,157 @@
+#container{
+	width: 940px;
+	min-height: 900px;
+	margin: 0 auto;
+}
+
+#header{
+	width: 100%;
+	height: 160px;
+	margin-bottom: 10px;
+	background-image:url('../img/banner.png');
+}
+
+#logo{
+	width: 360px;
+	height: 80px;
+	float: left;
+	margin-top: 5px;
+	background-image:url('../img/logo.jpg');
+}
+
+#nav{
+	float: left;
+	width: 160px;
+	height: 300px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	background-color: #5F6062;
+	color: white;
+}
+
+#nav li{
+	margin: 0px;
+	display: block;
+	list-style-type: none;
+	font-family: arial, helvetica;
+	font-size: 12px;
+	color: #fff;
+	font-weight: bold;
+	margin-left: -30px;
+}
+
+#nav li a{
+	color: white;
+	width: 90%;
+	padding: 4px 1px 4px 6px;
+	background: url(../img/menytransparent_white.png) repeat-y;
+	text-decoration: none;
+	display: block;
+	margin: 2px 0px;
+	border: 0px outset #7c9bbc;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+}
+
+#nav li a:hover{
+	background: #555555;
+}
+
+#content{
+	float: right;
+	width: 750px;
+	height: 600px;
+}
+
+#ecoHeader{
+	width: 100%;
+	height: 30px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid black;
+}
+
+#ecoHeader ul{
+	width: 100%;
+}
+
+#ecoHeader ul li{
+	float: left;
+	list-style: none;
+	margin-right: 10px;
+}
+
+#ecoContent table {
+	border: 1px solid #DFDFDF;
+	background-color: #F9F9F9;
+	width: 100%;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	font-family: Arial,"Bitstream Vera Sans",Helvetica,Verdana,sans-serif;
+	color: #333;
+}
+#ecoContent table td, #ecoContent table th {
+	border-top-color: white;
+	border-bottom: 1px solid #DFDFDF;
+	color: #555;
+}
+#ecoContent table th {
+	text-shadow: rgba(255, 255, 255, 0.796875) 0px 1px 0px;
+	font-family: Georgia,"Times New Roman","Bitstream Charter",Times,serif;
+	font-weight: normal;
+	padding: 7px 7px 8px;
+	text-align: left;
+	line-height: 1.3em;
+	font-size: 14px;
+}
+#ecoContent table td {
+	font-size: 12px;
+	padding: 4px 7px 2px;
+	vertical-align: top;
+}
+
+#popupBox{ 
+    display:none; /* Hide the DIV */
+    position:absolute;  
+    _position:absolute; /* hack for internet explorer 6 */  
+    width:720px;
+    min-height: 280px;
+    background:#F4F5F8;  
+    top: 10%;
+    z-index:100; /* Layering ( on-top of others), if you have lots of layers: I just maximized, you can change it yourself */
+    
+    /* additional features, can be omitted */
+    border:2px solid #F4F5F8;      
+    padding:15px;  
+    font-size:15px;  
+    -moz-box-shadow: 0 0 10px #F4F5F8;
+    -webkit-box-shadow: 0 0 10px #F4F5F8;
+    box-shadow: 0 0 10px #F4F5F8;
+    -moz-border-radius: 15px;
+	border-radius: 15px;
+}
+
+	#popupBoxClose{
+		float: right;
+	}
+
+.column{
+	float: left;
+	margin-left: 20px;
+	width: 240px;
+	height: 160px;
+}
+
+label{
+	float: left;
+	font: bold 10px verdana,Arial,Helvetica,sans-serif;
+	color: #678;
+	width: 40%;
+	margin-right: 23px;
+	padding-top: 5px;
+	text-align: left;
+	clear: left;
+}
+
+
