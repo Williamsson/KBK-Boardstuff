@@ -40,7 +40,7 @@ $(document).ready( function() {
 		var url =  location.protocol + "//" + location.hostname + 
 		(location.port && ":" + location.port) + "/";
 		//SKALL TAS BORT VID DEPLOY:
-		url = url + 'KBK-BoardStuffs/';
+		url = url + 'KBK-BoardStuff/';
 		return url;
 	}
 	

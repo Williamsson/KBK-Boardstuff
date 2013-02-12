@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://dev.wilsim.se:8080/KBK-BoardStuffs/';
+$config['base_url']	= 'http://dev.wilsim.se:8080/KBK-BoardStuff/';
 
 /*
 |--------------------------------------------------------------------------
