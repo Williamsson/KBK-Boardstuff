@@ -20,7 +20,7 @@
 	</div>
 	
 	<div id="ecoContent">
-		<table id="paginateMe">
+		<table>
 			<tr>
 				<th>Titel:</th>
 				<th>Inkomst/utgift:</th>
@@ -29,7 +29,6 @@
 				<th>Godkänd av revisor:</th>
 				<th>Återstående saldo:</th>
 			</tr>
-			
 		</table>
 	</div>
 	

@@ -32,13 +32,11 @@ class Database_model extends CI_Model{
 				'money' => $money,
 				'date' => $date,
 				'receipt' => $receipt,
-				'accountant_approved' => 0,
+				'accountant_approved' => 2,
 				'remaining_money' => $remainingMoney,
 			);
 			
 			$this->db->insert('economic_alterations', $data);
-		
-		
 	}
 	
 	function getEcoEntry($resource){
@@ -64,6 +62,7 @@ class Database_model extends CI_Model{
 	}
 	
 	function getAllEcoEntries(){
+		$this->db->order_by('date','desc');
 		$query = $this->db->get('economic_alterations');
 		
 		if($query->num_rows() > 0){
