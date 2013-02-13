@@ -1,25 +1,93 @@
 <?php 
 class Database_model extends CI_Model{
 	
-	function addEconomyPost($title, $desc, $type, $sum, $date, $receipt){
+	function addEconomyPost($title, $desc, $postType, $money, $date, $receipt){
 		$title = $this->safety_model->mysql_prep($title);
 		$desc = $this->safety_model->mysql_prep($desc);
-		$sum = $this->safety_model->mysql_prep($sum);
+		$money = $this->safety_model->mysql_prep($money);
 		$date = $this->safety_model->mysql_prep($date);
 		$receipt = $this->safety_model->mysql_prep($receipt);
+		$postType = $this->safety_model->mysql_prep($postType);
 		
-		$data = array(
-			'title' => $title,
-			'description' => $desc,
-			'sum_money' => $sum,
-			'date' => $date,
-			'receipt' => $receipt,
-			'accountant_approved' => 0,
-		);
+		$query = $this->db->query("SELECT remaining_money FROM economic_alterations ORDER BY id DESC LIMIT 1");
 		
-		$this->db->insert('mytable', $data);
+		if($query->num_rows() > 0){
+			foreach($query->result() as $row){
+				$remainingMoney = $row->remaining_money;
+			}
+		}else{
+			$remainingMoney = 0;
+		}
+		
+			if($postType == 1){
+				$remainingMoney = $remainingMoney + $money;
+			}else{
+				$remainingMoney = $remainingMoney - $money;
+			}
+			
+			$data = array(
+				'type' => $postType,
+				'title' => $title,
+				'description' => $desc,
+				'money' => $money,
+				'date' => $date,
+				'receipt' => $receipt,
+				'accountant_approved' => 0,
+				'remaining_money' => $remainingMoney,
+			);
+			
+			$this->db->insert('economic_alterations', $data);
+		
 		
 	}
+	
+	function getEcoEntry($resource){
+		$query = $this->db->get_where('economic_alterations', array('id' => $resource));
+
+		if($query->num_rows() > 0){
+			$result = array();
+			foreach($query->result() as $row){
+				$result[] = $row->id;
+				$result[] = $row->title;
+				$result[] = $row->description;
+				$result[] = $row->money;
+				$result[] = $row->type;
+				$result[] = $row->date;
+				$result[] = $row->receipt;
+				$result[] = $row->accountant_approved;
+				$result[] = $row->remaining_money;
+			}
+			return $result;
+		}else{
+			return "No such entry.";
+		}
+	}
+	
+	function getAllEcoEntries(){
+		$query = $this->db->get('economic_alterations');
+		
+		if($query->num_rows() > 0){
+			$result = array();
+			$i = 0;
+			foreach($query->result() as $row){
+				$temp = array();
+				$temp[] = $row->id;
+				$temp[] = $row->title;
+				$temp[] = $row->description;
+				$temp[] = $row->money;
+				$temp[] = $row->type;
+				$temp[] = $row->date;
+				$temp[] = $row->receipt;
+				$temp[] = $row->accountant_approved;
+				$temp[] = $row->remaining_money;
+				
+				$result[$i] = $temp;
+				++$i;
+			}
+			return $result;
+		}
+	}
+	
 	
 }
 ?>

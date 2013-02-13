@@ -7,6 +7,7 @@
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js"></script>
 	
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
 	<link rel="stylesheet" href="<?php echo base_url();?>css/style.css" type="text/css" media="screen"/>
 	
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8_bin"/>

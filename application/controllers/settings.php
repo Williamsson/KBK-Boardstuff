@@ -4,7 +4,7 @@ class Settings extends CI_Controller {
 	
 	function index(){
 		$data = array(
-					'title' => "KBK - Inställningar",
+					'title' => "KBK - InstÃ¤llningar",
 					'mainContent' => "settings_view.php",
 					'description' => "En sida",
 					'keyword' => "nycklar",

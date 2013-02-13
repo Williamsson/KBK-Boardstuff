@@ -20,7 +20,7 @@
 	</div>
 	
 	<div id="ecoContent">
-		<table>
+		<table id="paginateMe">
 			<tr>
 				<th>Titel:</th>
 				<th>Inkomst/utgift:</th>
@@ -30,41 +30,6 @@
 				<th>Återstående saldo:</th>
 			</tr>
 			
-			<tr>
-				<td>Tält20</td>
-				<td>-2500r</td>
-				<td>2013-02-01</td>
-				<td>Ja</td>
-				<td>Nej</td>
-				<td>4800</td>
-			</tr>
-			
-			<tr>
-				<td>Gary</td>
-				<td>-500</td>
-				<td>2013-02-01</td>
-				<td>Nej</td>
-				<td>Nej</td>
-				<td>4300</td>
-			</tr>
-			
-			<tr>
-				<td>Grundbidrag Sverok</td>
-				<td>+ 3000</td>
-				<td>2013-02-01</td>
-				<td>Nej</td>
-				<td>Nej</td>
-				<td>7300</td>
-			</tr>
-			
-			<tr>
-				<td>Medlemsavgift</td>
-				<td>+ 700</td>
-				<td>2013-02-01</td>
-				<td>Nej</td>
-				<td>Nej</td>
-				<td>8000</td>
-			</tr>
 		</table>
 	</div>
 	
@@ -77,3 +42,4 @@
 	 	
 	 </div>
 </div>
+

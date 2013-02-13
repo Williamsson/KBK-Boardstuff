@@ -4,7 +4,7 @@ class User extends CI_Controller {
 	
 	function index(){
 		$data = array(
-					'title' => "KBK - Användare",
+					'title' => "KBK - AnvÃ¤ndare",
 					'description' => "En sida",
 					'keyword' => "nycklar",
 					);

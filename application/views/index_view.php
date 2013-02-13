@@ -6,6 +6,7 @@
 <?php 
 		echo form_submit('login', 'Logga in');
 	echo form_close();
+	
 ?>
 
 
