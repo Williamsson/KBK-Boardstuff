@@ -1,7 +1,4 @@
 $(document).ready( function() {
-	
-	var sendButton = $("#economicAlterationSubmit");
-	
 	sendButton.click(function(e){
 		e.preventDefault();
 	
@@ -31,12 +28,5 @@ $(document).ready( function() {
 		$("#popupBox").hide('slow');
 	}
 	
-	function getBaseURL () {
-		var url =  location.protocol + "//" + location.hostname + 
-		(location.port && ":" + location.port) + "/";
-		//SKALL TAS BORT VID DEPLOY:
-		url = url + 'KBK-BoardStuff/';
-		return url;
-	}
 	
 });
