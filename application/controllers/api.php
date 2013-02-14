@@ -27,6 +27,8 @@ class Api extends REST_Controller{
 			$date = explode("/", $date);
 			$fixedDate = $date[2] . "/" . $date[0] . "/" . $date[1];
 			
+			$money = str_replace(",", ".", $money);
+			
 			$this->database_model->addEconomyPost($title, $desc, $postType, $money, $fixedDate, $receipt);
 		}
 	}
