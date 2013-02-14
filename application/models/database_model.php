@@ -9,7 +9,7 @@ class Database_model extends CI_Model{
 		$receipt = $this->safety_model->mysql_prep($receipt);
 		$postType = $this->safety_model->mysql_prep($postType);
 		
-		$query = $this->db->query("SELECT remaining_money FROM economic_alterations WHERE date <= '$date' ORDER BY id DESC LIMIT 1");
+		$query = $this->db->query("SELECT remaining_money FROM economic_alterations WHERE date <= '$date' ORDER BY id ASC LIMIT 1");
 		
 		if($query->num_rows() > 0){
 			foreach($query->result() as $row){

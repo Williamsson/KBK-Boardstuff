@@ -1,4 +1,5 @@
 $(document).ready( function() {
+	sendButton = $("#economicAlterationSubmit");
 	sendButton.click(function(e){
 		e.preventDefault();
 	

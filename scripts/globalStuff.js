@@ -12,11 +12,18 @@ function togglePopup(){
 	popupBox.toggle('slow');
 }
 
+//Takes a file name, finds the correct url, and loads it into the popup
+function appendPopupForm(file){
+	var url = getBaseURL();
+	url = url + 'application/views/popupbox_views/';
+	popupBoxContent.empty();
+	popupBoxContent.load(url + file);
+}
+
 function populateTable(){
 	var table = $("#ecoContent table");
 	
 	var url = getBaseURL();
-	msg = "Poop";
 	 $.ajax({
 		type: "GET",
 		url: url + 'api/economy/format/json',
@@ -73,11 +80,16 @@ function populateTable(){
 $(document).ready( function() {
 	populateTable();
 	
-	sendButton = $("#economicAlterationSubmit");
+	
 	addIncomeButton = $("#addIncome");
 	addExpenseButton = $("#addExpense");
 	popupBox = $("#popupBox");
 	popupBoxContent = $("#popupBoxContent");
 	closePopup = $("#popupBoxClose");
 	
+	//Close the popup when that button is clicked
+	closePopup.click(function(e) {
+		e.preventDefault();
+		togglePopup();
+	});
 });

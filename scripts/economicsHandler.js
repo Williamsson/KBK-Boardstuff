@@ -24,21 +24,6 @@ $(document).ready( function() {
 		  }, 500);
 	});
 	
-	//Close the popup
-	closePopup.click(function(e) {
-		e.preventDefault();
-		togglePopup();
-	});
 	
-	//Takes a file name, finds the correct url, and loads it into the popup
-	function appendPopupForm(file){
-		var url = getBaseURL();
-		url = url + 'application/views/popupbox_views/';
-		popupBoxContent.empty();
-		popupBoxContent.load(url + file);
-	}
-	
-		
-		
 	
 });

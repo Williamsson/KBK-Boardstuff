@@ -1,6 +1,6 @@
 ﻿<script type="text/javascript" src="<?php echo base_url();?>scripts/globalStuff.js"></script>
-<script type="text/javascript" src="<?php echo base_url();?>scripts/popup.js"></script>
-<script type="text/javascript" src="<?php echo base_url();?>scripts/fillTable.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>scripts/economicsHandler.js"></script>
+
 
 <div id="ecoWrapper">
 
