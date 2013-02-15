@@ -20,6 +20,36 @@ function appendPopupForm(file){
 	popupBoxContent.load(url + file);
 }
 
+function showDetailedInformation(id, type){
+	var url = getBaseURL();
+	$("#popupBox h2").text("Detaljerad information: ");
+	if(type == "ecoPost"){
+		
+		$.ajax({
+			type: "GET",
+			url: url + 'api/economy/id/' + id + '/format/json',
+		}).done(function(data){
+			
+			togglePopup();
+			appendPopupForm('detailed_eco_post.html');
+			
+			setTimeout(
+					function(){
+						$("#title").val(data['title']);
+						$("#money").val(data['money']);
+						$("#receipt").val(data['receipt']);
+						$("#date").val(data['date']);
+						$("#description").val(data['desc']);
+						$("#alterationType").val(data['type']);
+			  }, 500);
+			
+			
+		});
+		
+	}
+	
+}
+
 function populateTable(){
 	var table = $("#ecoContent table");
 	
@@ -28,16 +58,23 @@ function populateTable(){
 		type: "GET",
 		url: url + 'api/economy/format/json',
 	}).done(function(data){
+		var holder = new Array();
+		
 		$(data).each(function(index){
-			var id = ($(this)[0]);
-			var title = ($(this)[1]);
-			var desc = ($(this)[2]);
-			var money = ($(this)[3]);
-			var type = ($(this)[4]);
-			var date = ($(this)[5]);
-			var receipt = ($(this)[6]);
-			var accountant_approved = ($(this)[7]);
-			var remaining_money = ($(this)[8]);
+			
+			
+			var id = ($(this)[0]['id']);
+			var title = ($(this)[0]['title']);
+			var desc = ($(this)[0]['desc']);
+			var money = parseFloat(($(this)[0]['money']));
+			var type = ($(this)[0]['type']);
+			var date = ($(this)[0]['date']);
+			var receipt = ($(this)[0]['receipt']);
+			var accountant_approved = ($(this)[0]['accountant_approved']);
+			
+			holder[index] = new Array();
+			holder[index]['money'] = money;
+			holder[index]['type'] = type;
 			
 			if(receipt == 1){
 				receipt = "Ja";
@@ -54,42 +91,68 @@ function populateTable(){
 			}
 			
 			if(type == 1){
-				money = "+ " + money;
+				money = "+" + money;
 			}else if(type == 0){
-				money = "- " + money;
+				money = "-" + money;
 			}else{
 				money = "-";
 			}
 			
+			
 			table.append(" \
 				    <tr> \
-				        <td><a href='#" + id + "' id='ecoPostLink'>" + title + "</a></td> \
+				        <td> <a href='#" + id + "' id='ecoPostLink' onclick='showDetailedInformation(" + id + ', "ecoPost"' + "); return false;'>" + title + "</a> </td> \
 				        <td>" + money + "</td> \
 				        <td>" + date + "</td> \
 				        <td>" + receipt + "</td> \
 				        <td>" + accountant_approved + "</td> \
-				        <td>"+ remaining_money + "</td> \
+				        <td><p id='moneyLeft" + index + "'></p></td> \
 				    </tr> \
 				    ");
-	});
-	
-	
+		});
+		
+		var moneyArray = new Array();
+		var typeArray = new Array();
+		
+		$(holder).each(function(index){
+			
+			var money = parseFloat(holder[index]['money']);
+			var type = holder[index]['type'];
+
+			moneyArray[index] = money;
+			typeArray[index] = type;
+		});
+		
+		moneyArray.reverse();
+		typeArray.reverse();
+		
+		remainingMoney = new Array();
+		
+		$(moneyArray).each(function(index){
+			remainingMoney[index] = new Array();
+			remainingMoney[index]['type'] = typeArray[index];
+			remainingMoney[index]['money'] = moneyArray[index];
+		});
+		
+		console.log(remainingMoney);
+		
 	});
 }
 
 $(document).ready( function() {
 	populateTable();
 	
-	
 	addIncomeButton = $("#addIncome");
 	addExpenseButton = $("#addExpense");
 	popupBox = $("#popupBox");
 	popupBoxContent = $("#popupBoxContent");
 	closePopup = $("#popupBoxClose");
+	ecoPostLink = $("#ecoPostLink");
 	
 	//Close the popup when that button is clicked
 	closePopup.click(function(e) {
 		e.preventDefault();
 		togglePopup();
 	});
+	
 });

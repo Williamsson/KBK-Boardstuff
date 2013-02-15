@@ -18,7 +18,6 @@ class Database_model extends CI_Model{
 		}else{
 			$remainingMoney = 0;
 		}
-		
 			if($postType == 1){
 				$remainingMoney = $remainingMoney + $money;
 			}else{
@@ -45,15 +44,15 @@ class Database_model extends CI_Model{
 		if($query->num_rows() > 0){
 			$result = array();
 			foreach($query->result() as $row){
-				$result[] = $row->id;
-				$result[] = $row->title;
-				$result[] = $row->description;
-				$result[] = $row->money;
-				$result[] = $row->type;
-				$result[] = $row->date;
-				$result[] = $row->receipt;
-				$result[] = $row->accountant_approved;
-				$result[] = $row->remaining_money;
+				$result['id'] = $row->id;
+				$result['title'] = $row->title;
+				$result['desc'] = $row->description;
+				$result['money'] = $row->money;
+				$result['type'] = $row->type;
+				$result['date'] = $row->date;
+				$result['receipt'] = $row->receipt;
+				$result['accountant_approved'] = $row->accountant_approved;
+				$result['remaining_money'] = $row->remaining_money;
 			}
 			return $result;
 		}else{
@@ -70,16 +69,15 @@ class Database_model extends CI_Model{
 			$result = array();
 			$i = 0;
 			foreach($query->result() as $row){
-				$temp = array();
-				$temp[] = $row->id;
-				$temp[] = $row->title;
-				$temp[] = $row->description;
-				$temp[] = $row->money;
-				$temp[] = $row->type;
-				$temp[] = $row->date;
-				$temp[] = $row->receipt;
-				$temp[] = $row->accountant_approved;
-				$temp[] = $row->remaining_money;
+				$temp['id'] = $row->id;
+				$temp['title'] = $row->title;
+				$temp['desc'] = $row->description;
+				$temp['money'] = $row->money;
+				$temp['type'] = $row->type;
+				$temp['date'] = $row->date;
+				$temp['receipt'] = $row->receipt;
+				$temp['accountant_approved'] = $row->accountant_approved;
+				$temp['remaining_money'] = $row->remaining_money;
 				
 				$result[$i] = $temp;
 				++$i;
