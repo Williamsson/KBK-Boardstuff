@@ -134,6 +134,12 @@ function populateTable(){
 			remainingMoney[index]['money'] = moneyArray[index];
 		});
 		
+		var a = remainingMoney.length;
+		console.log(a);
+		$(remainingMoney).each(function(index){
+			
+		});
+		
 		console.log(remainingMoney);
 		
 	});
