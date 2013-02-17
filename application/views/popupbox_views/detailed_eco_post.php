@@ -1,8 +1,9 @@
 <script>
   $(function() {
-    $("#date").datepicker({ dateFormat: "mm/dd/yy"});
+    $("#date").datepicker({ dateFormat: "yy/mm/dd"});
   });
 </script>
+
 <form>
 	<div class="column">
 		<label for="title">Titel: *</label>

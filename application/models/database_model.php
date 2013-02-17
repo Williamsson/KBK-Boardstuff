@@ -41,7 +41,6 @@ class Database_model extends CI_Model{
 				$result['date'] = $row->date;
 				$result['receipt'] = $row->receipt;
 				$result['accountant_approved'] = $row->accountant_approved;
-				$result['remaining_money'] = $row->remaining_money;
 			}
 			return $result;
 		}else{

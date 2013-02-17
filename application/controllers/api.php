@@ -24,14 +24,13 @@ class Api extends REST_Controller{
 			$receipt = $this->post('receipt'); 
 			
 			//Rearrange date since mysql wants it this way and the extension didn't want to change
-			$date = explode("/", $date);
-			$fixedDate = $date[2] . "/" . $date[0] . "/" . $date[1];
+			$date = str_replace("/", "-", $date);
 			
 			$money = str_replace(",", ".", $money);
 			
-			$result = $this->database_model->addEconomyPost($title, $desc, $postType, $money, $fixedDate, $receipt);
+			$result = $this->database_model->addEconomyPost($title, $desc, $postType, $money, $date, $receipt);
 			if($result){
-				$this->response(NULL, 200);
+				$this->response($date, 200);
 			}else{
 				$this->response($response, 500);
 			}

@@ -31,7 +31,7 @@ function showDetailedInformation(id, type){
 		}).done(function(data){
 			
 			togglePopup();
-			appendPopupForm('detailed_eco_post.html');
+			appendPopupForm('detailed_eco_post.php');
 			
 			setTimeout(
 					function(){
@@ -101,7 +101,7 @@ function populateTable(){
 			table.append(" \
 				    <tr> \
 				        <td> <a href='#" + id + "' id='ecoPostLink' onclick='showDetailedInformation(" + id + ', "ecoPost"' + "); return false;'>" + title + "</a> </td> \
-				        <td>" + money + "</td> \
+				        <td>" + money + " kr</td> \
 				        <td>" + date + "</td> \
 				        <td>" + receipt + "</td> \
 				        <td>" + accountant_approved + "</td> \

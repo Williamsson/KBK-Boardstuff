@@ -4,7 +4,7 @@ $(document).ready( function() {
 	addIncomeButton.click(function(e) {
 		e.preventDefault();
 		togglePopup();
-		appendPopupForm('eco_alteration.html');
+		appendPopupForm('eco_alteration.php');
 		$("#popupBox h2").text("Ny inkomst: ");
 		setTimeout(
 		  function(){
@@ -16,7 +16,7 @@ $(document).ready( function() {
 	addExpenseButton.click(function(e){
 		e.preventDefault();
 		togglePopup();
-		appendPopupForm('eco_alteration.html');
+		appendPopupForm('eco_alteration.php');
 		$("#popupBox h2").text("Ny utgift: ");
 		setTimeout(
 			  function(){

@@ -1,7 +1,7 @@
 <script type="text/javascript" src="scripts/sendEconomicAlteration.js"></script>
 <script>
   $(function() {
-    $("#date").datepicker({ dateFormat: "mm/dd/yy"});
+	  $("#date").datepicker({ dateFormat: "yy/mm/dd"});
   });
 </script>
 <form>
