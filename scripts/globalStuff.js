@@ -62,7 +62,6 @@ function populateTable(){
 		
 		$(data).each(function(index){
 			
-			
 			var id = ($(this)[0]['id']);
 			var title = ($(this)[0]['title']);
 			var desc = ($(this)[0]['desc']);
@@ -153,9 +152,6 @@ function populateTable(){
 			$("#moneyLeft" + a).html(currentMoney);
 			
 		}
-		
-		console.log(currentMoney);
-		
 		
 	});
 }

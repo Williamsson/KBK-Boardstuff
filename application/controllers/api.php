@@ -29,7 +29,12 @@ class Api extends REST_Controller{
 			
 			$money = str_replace(",", ".", $money);
 			
-			$this->database_model->addEconomyPost($title, $desc, $postType, $money, $fixedDate, $receipt);
+			$result = $this->database_model->addEconomyPost($title, $desc, $postType, $money, $fixedDate, $receipt);
+			if($result){
+				$this->response(NULL, 200);
+			}else{
+				$this->response($response, 500);
+			}
 		}
 	}
 	

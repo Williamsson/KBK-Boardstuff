@@ -9,21 +9,6 @@ class Database_model extends CI_Model{
 		$receipt = $this->safety_model->mysql_prep($receipt);
 		$postType = $this->safety_model->mysql_prep($postType);
 		
-		$query = $this->db->query("SELECT remaining_money FROM economic_alterations WHERE date <= '$date' ORDER BY id ASC LIMIT 1");
-		
-		if($query->num_rows() > 0){
-			foreach($query->result() as $row){
-				$remainingMoney = $row->remaining_money;
-			}
-		}else{
-			$remainingMoney = 0;
-		}
-			if($postType == 1){
-				$remainingMoney = $remainingMoney + $money;
-			}else{
-				$remainingMoney = $remainingMoney - $money;
-			}
-			
 			$data = array(
 				'type' => $postType,
 				'title' => $title,
@@ -32,10 +17,14 @@ class Database_model extends CI_Model{
 				'date' => $date,
 				'receipt' => $receipt,
 				'accountant_approved' => 2,
-				'remaining_money' => $remainingMoney,
 			);
 			
-			$this->db->insert('economic_alterations', $data);
+			$result = $this->db->insert('economic_alterations', $data);
+			if($result){
+				return true;
+			}else{
+				return mysql_error();
+			}
 	}
 	
 	function getEcoEntry($resource){
@@ -77,7 +66,6 @@ class Database_model extends CI_Model{
 				$temp['date'] = $row->date;
 				$temp['receipt'] = $row->receipt;
 				$temp['accountant_approved'] = $row->accountant_approved;
-				$temp['remaining_money'] = $row->remaining_money;
 				
 				$result[$i] = $temp;
 				++$i;
