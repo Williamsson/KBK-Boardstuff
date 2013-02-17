@@ -87,7 +87,7 @@ function populateTable(){
 			}else if(accountant_approved == 1){
 				accountant_approved = "Ja";
 			}else{
-				accountant_approved = "-";
+				accountant_approved = "Inte granskat ännu";
 			}
 			
 			if(type == 1){
@@ -135,12 +135,27 @@ function populateTable(){
 		});
 		
 		var a = remainingMoney.length;
-		console.log(a);
-		$(remainingMoney).each(function(index){
-			
-		});
+		var i = -1;
+		var currentMoney = 0;
 		
-		console.log(remainingMoney);
+		while(i < remainingMoney.length -1){
+			i = i + 1;
+			a = a - 1;
+			
+			var postMoney = remainingMoney[i]['money'];
+			
+			if(remainingMoney[i]['type'] == 1){
+				currentMoney = currentMoney + postMoney;
+			}else{
+				currentMoney = currentMoney - postMoney;
+			}
+			
+			$("#moneyLeft" + a).html(currentMoney);
+			
+		}
+		
+		console.log(currentMoney);
+		
 		
 	});
 }
