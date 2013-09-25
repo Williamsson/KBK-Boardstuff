@@ -23,9 +23,7 @@ class Api extends REST_Controller{
 			$date = $this->post('date');
 			$receipt = $this->post('receipt'); 
 			
-			//Rearrange date since mysql wants it this way and the extension didn't want to change
 			$date = str_replace("/", "-", $date);
-			
 			$money = str_replace(",", ".", $money);
 			
 			$result = $this->database_model->addEconomyPost($title, $desc, $postType, $money, $date, $receipt);
@@ -39,7 +37,7 @@ class Api extends REST_Controller{
 	
 	function economy_get(){
 		if(!$this->get('id')){
-			$entries = $this->database_model->getAllEcoEntries();
+			$entries = $this->database_model->getAllEcoEntries($this->get('year'));
 			if(is_array($entries)){
 				$this->response($entries, 200);
 			}else{

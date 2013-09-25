@@ -2,6 +2,10 @@
 class Economy extends CI_Controller {
 	
 	function index(){
+		if(!$this->safety_model->isLoggedIn()){
+			redirect('page');
+		}
+		$this->load->model('economy_model');
 		$data = array(
 					'title' => "KBK - Ekonomisk översikt",
 					'mainContent' => "economy_view.php",

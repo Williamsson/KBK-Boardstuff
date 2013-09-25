@@ -3,6 +3,10 @@
 class Operation extends CI_Controller {
 	
 	function index(){
+		if(!$this->safety_model->isLoggedIn()){
+			redirect('page');
+		}
+		
 		$data = array(
 					'title' => "KBK - Verksamhetsplan",
 					'mainContent' => "operation_view.php",

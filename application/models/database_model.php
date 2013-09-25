@@ -48,9 +48,10 @@ class Database_model extends CI_Model{
 		}
 	}
 	
-	function getAllEcoEntries(){
+	function getAllEcoEntries($year){
 		$this->db->order_by('date','desc');
 		$this->db->order_by('id','desc');
+		$this->db->like('date',$year);
 		$query = $this->db->get('economic_alterations');
 		
 		if($query->num_rows() > 0){

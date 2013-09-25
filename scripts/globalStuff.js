@@ -8,6 +8,13 @@ function getBaseURL(){
 	return url;
 }
 
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
 function togglePopup(){
 	popupBox.toggle('slow');
 }
@@ -27,7 +34,8 @@ function showDetailedInformation(id, type){
 		
 		$.ajax({
 			type: "GET",
-			url: url + 'api/economy/id/' + id + '/format/json',
+			url: url + 'api/economy/format/json',
+			data: {id: id}
 		}).done(function(data){
 			
 			togglePopup();
@@ -35,6 +43,7 @@ function showDetailedInformation(id, type){
 			
 			setTimeout(
 					function(){
+						
 						$("#title").val(data['title']);
 						$("#money").val(data['money']);
 						$("#receipt").val(data['receipt']);
@@ -42,21 +51,17 @@ function showDetailedInformation(id, type){
 						$("#description").val(data['desc']);
 						$("#alterationType").val(data['type']);
 			  }, 500);
-			
-			
 		});
-		
 	}
-	
 }
 
 function populateTable(){
 	var table = $("#ecoContent table");
-	
+	var year = getParameterByName("year");
 	var url = getBaseURL();
 	 $.ajax({
 		type: "GET",
-		url: url + 'api/economy/format/json',
+		url: url + 'api/economy/format/json/year/' + year,
 	}).done(function(data){
 		var holder = new Array();
 		
@@ -96,7 +101,6 @@ function populateTable(){
 			}else{
 				money = "-";
 			}
-			
 			
 			table.append(" \
 				    <tr> \
@@ -150,9 +154,7 @@ function populateTable(){
 			}
 			
 			$("#moneyLeft" + a).html(currentMoney);
-			
 		}
-		
 	});
 }
 
@@ -170,6 +172,12 @@ $(document).ready( function() {
 	closePopup.click(function(e) {
 		e.preventDefault();
 		togglePopup();
+	});
+	
+	$("#yearPicker").change(function(){
+		var year = $( "#yearPicker option:selected").val();
+		var url = getBaseURL() + "Economy?year=" + year;
+		window.location = url;
 	});
 	
 });

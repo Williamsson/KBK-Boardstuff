@@ -3,6 +3,10 @@
 class User extends CI_Controller {
 	
 	function index(){
+		if(!$this->safety_model->isLoggedIn()){
+			redirect('page');
+		}
+		
 		$data = array(
 					'title' => "KBK - Användare",
 					'description' => "En sida",
@@ -12,9 +16,18 @@ class User extends CI_Controller {
 	}
 	
 	function login(){
+		if($this->input->post('username')){
+			$username = $this->input->post('username');
+			$password = hash('sha1', $this->input->post('password'));
+			
+			$this->user_model->login($username, $password);
+		}
+		redirect('');
+		
 	}
 	
 	function logout(){
+		$this->user_model->logout();
 		redirect('page');
 	}
 	

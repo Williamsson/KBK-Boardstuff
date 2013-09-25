@@ -18,6 +18,9 @@
 			<option value="0">Nej</option>
 		</select><br/>
 		
+		<label for="receiptImage">Bild på kvitto: </label>
+		<input type="file" id="receiptImage" name="receiptImage" accept="image/*"/><br/>
+		
 		<input type="submit" value="Lägg till" name="economicAlterationSubmit" id="economicAlterationSubmit"/>
 	</div>
 	

@@ -3,6 +3,10 @@
 class Settings extends CI_Controller {
 	
 	function index(){
+		if(!$this->safety_model->isLoggedIn()){
+			redirect('page');
+		}
+		
 		$data = array(
 					'title' => "KBK - Inställningar",
 					'mainContent' => "settings_view.php",

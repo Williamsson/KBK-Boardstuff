@@ -24,7 +24,13 @@
 			<option value="0">Utgift</option>
 		</select><br/>
 		
-		<input type="submit" value="Redigera" name="editEcoPost" id="editEcoPost"/>
+		<?php 
+			$isAdmin = true;
+			if($isAdmin){?>
+			<input type="submit" value="Redigera" name="editEcoPost" id="editEcoPost"/>
+	<?php }
+		?>
+		
 	</div>
 	
 	<div class="column">

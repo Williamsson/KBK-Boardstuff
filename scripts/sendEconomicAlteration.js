@@ -20,7 +20,7 @@ $(document).ready( function() {
 					togglePopup();
 			});
 		}else{
-			alert("Någonting är trasigt, och du är troligen orsaken. Jag tror att du mixtrat med #alterationType. Har du det? Fy i så fall! Om inte, kontakta Williamsson.");
+			alert("Någonting är trasigt, och du är troligen orsaken. Jag tror att du mixtrat med mina IDn i html-koden. Har du det? Fy i så fall! Om inte, kontakta Williamsson.");
 		}
 	});
 	
@@ -28,6 +28,4 @@ $(document).ready( function() {
 		$("#popupBoxContent").empty();
 		$("#popupBox").hide('slow');
 	}
-	
-	
 });
