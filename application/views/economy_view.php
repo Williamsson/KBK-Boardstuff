@@ -1,4 +1,8 @@
-﻿<script type="text/javascript" src="<?php echo base_url();?>scripts/globalStuff.js"></script>
+﻿<style type="text/css">@import url(<?php echo base_url();?>scripts/plupload/jquery.plupload.queue/css/jquery.plupload.queue.css);</style>
+<script type="text/javascript" src="http://bp.yahooapis.com/2.4.21/browserplus-min.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>scripts/plupload/jquery.plupload.queue/jquery.plupload.queue.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>scripts/plupload/plupload.full.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>scripts/globalStuff.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>scripts/economicsHandler.js"></script>
 <div id="ecoWrapper">
 	<div id="ecoHeader">
@@ -24,7 +28,6 @@
 			<li><a href="#">Exportera årets inkomster/utgifter till PDF</a></li>
 		</ul>
 	</div>
-	
 	<div id="ecoContent">
 		<table>
 			<tr>

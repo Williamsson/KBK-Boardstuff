@@ -137,6 +137,12 @@
 		float: right;
 	}
 	
+	#uploader{
+		float: left !important;
+		margin-top: 20px !important;
+		width: 100% !important;
+	}
+	
 .column{
 	float: left;
 	margin-left: 20px;
